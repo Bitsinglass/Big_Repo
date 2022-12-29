@@ -17,13 +17,13 @@ Scenario: Create a user with given data
 	#* print "Bakshiiii" + randomString
 	* def requestPayload = 
 	"""
-  		{
+  		{  
 		  "name": "Jatin",  	
 		  "gender": "male",
 		  "status": "active"
  		}
 	"""
-	* requestPayload.email = randomString + "@gmail.com"
+	* requestPayload.email = randomString + "@gmail.com" 
   Given path '/public/v2/users'
 	And request requestPayload
 	And header Authorization = 'Bearer '+ 'd8df370f4688b2f4960f8e1fc6654a3bbd20330efdd4c6281d8f39fd39a109ec'
