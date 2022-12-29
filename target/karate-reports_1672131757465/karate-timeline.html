@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"apiServices\/SecondfeatureTest[1:4]","start":1672126249603,"end":1672126253712,"title":"apiServices\/SecondfeatureTest[1:4] 13:00:49.603-13:00:53.712 Test the request with delay"},{"id":2,"group":1,"content":"apiServices\/TestFeature[1:4]","start":1672126253851,"end":1672126254023,"title":"apiServices\/TestFeature[1:4] 13:00:53.851-13:00:54.023 testing the get call for User Details"},{"id":3,"group":1,"content":"apiServices\/TestFeature[2:12]","start":1672126254038,"end":1672126254577,"title":"apiServices\/TestFeature[2:12] 13:00:54.038-13:00:54.577 testing 404 error"},{"id":4,"group":1,"content":"apiServices\/TestFeature[3:19]","start":1672126254588,"end":1672126255027,"title":"apiServices\/TestFeature[3:19] 13:00:54.588-13:00:55.027 testing the get call for User Details"},{"id":5,"group":1,"content":"apiServices\/NoTags[1:3]","start":1672126247165,"end":1672126248021,"title":"apiServices\/NoTags[1:3] 13:00:47.165-13:00:48.021 Create a user with given data","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

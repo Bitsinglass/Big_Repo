@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"apiServices\/SecondfeatureTest[1:4]","start":1672288143348,"end":1672288146862,"title":"apiServices\/SecondfeatureTest[1:4] 09:59:03.348-09:59:06.862 Test the request with delay"},{"id":2,"group":1,"content":"apiServices\/TestFeature[1:4]","start":1672288146923,"end":1672288147047,"title":"apiServices\/TestFeature[1:4] 09:59:06.923-09:59:07.047 testing the get call for User Details"},{"id":3,"group":1,"content":"apiServices\/TestFeature[2:12]","start":1672288147050,"end":1672288147524,"title":"apiServices\/TestFeature[2:12] 09:59:07.050-09:59:07.524 testing 404 error"},{"id":4,"group":1,"content":"apiServices\/TestFeature[3:19]","start":1672288147527,"end":1672288147870,"title":"apiServices\/TestFeature[3:19] 09:59:07.527-09:59:07.870 testing the get call for User Details"},{"id":5,"group":1,"content":"apiServices\/PostJsonFile[1:3]","start":1672288142548,"end":1672288143281,"title":"apiServices\/PostJsonFile[1:3] 09:59:02.548-09:59:03.281 Create a user with given data","className":"failed"},{"id":6,"group":1,"content":"apiServices\/NoTags[1:3]","start":1672288140452,"end":1672288142082,"title":"apiServices\/NoTags[1:3] 09:59:00.452-09:59:02.082 Create a user with given data","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
